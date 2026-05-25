@@ -1,22 +1,22 @@
-import socket
+import asyncio
 
-HOST = "0.0.0.0" # Acepta conexiones de cualquier IP
+HOST = "0.0.0.0"
 PORT = 5000
 
+clients: dict = {}  # StreamWriter -> username
 
-server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
-server.bind((HOST, PORT))
-server.listen()
+async def broadcast(msg: str, exclude=None):
+    pass
 
-print("Servidor activo")
 
-conn, addr = server.accept()
+async def handle_client(reader: asyncio.StreamReader, writer: asyncio.StreamWriter):
+    pass
 
-print("Conectado por: ", addr)
 
-data = conn.recv(1024)
-print("Mensaje recibido: ", data.decode())
+async def main():
+    pass
 
-conn.sendall("Hola cliente".encode())
-conn.close()
+
+if __name__ == "__main__":
+    asyncio.run(main())
